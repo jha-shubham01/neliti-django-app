@@ -1,14 +1,16 @@
+import json
+
+import requests
+from django.conf import settings
 from django.http import HttpResponse
 from django.shortcuts import render
-import requests
-import json
 
 # Create your views here.
 
 def index(request):
     """Render the html file."""
 
-    return render(request, "index.html")
+    return render(request, "index.html", {"MAP_KEY": settings.MAP_KEY})
 
 
 def get_weather_data(request):
